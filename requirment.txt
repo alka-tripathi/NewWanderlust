@@ -1,0 +1,8 @@
+Model : Listing //places -> villa ,house
+
+title (String)
+description  (String)
+image  (URL)
+price  (Number)
+location  (String)
+country  (String)
