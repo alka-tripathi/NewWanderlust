@@ -5,8 +5,10 @@ const connectDB = require('./config/db');
 const Listing = require('./models/listing');
 const initdata = require('./init/data.js');
 //const ejs = require('ejs');
+const methodOverride = require('method-override');
 
 const path = require('path');
+const { request } = require('http');
 app.use(express.urlencoded({ extended: true }));
 //set view engine
 app.set('view engine', 'ejs');
@@ -17,6 +19,7 @@ app.use(express.json());
 connectDB();
 
 const PORT = process.env.PORT || 5000;
+app.use(methodOverride('_method'));
 
 app.listen(PORT, (req, res) => {
   console.log('Server is listening to port');
@@ -60,16 +63,49 @@ app.get('/listings', async (req, res) => {
   }
 });
 
+//NEW
+app.get('/listings/new', (req, res) => {
+  res.render('listings/new.ejs');
+});
+//CREATE
+app.post('/listings', async (req, res) => {
+  const newlisting = new Listing(req.body.listing);
+  await newlisting.save();
+  console.log(newlisting);
+  res.redirect('/listings');
+});
+
 //SHOW ROUTE
 
 app.get('/listings/:id', async (req, res) => {
   let { id } = req.params;
   try {
-    const listing = await Listing.findById(id);
+    const listing = await Listing.findById(id); //here Listing is a model waha se search hoga
     console.log('Each data is shown');
     res.render('listings/show', { listing });
   } catch (err) {
     console.error(err);
     res.status(500).send('Server Error');
   }
+});
+
+//EDIT Route
+app.get('/listings/:id/edit', async (req, res) => {
+  let { id } = req.params;
+  const listing = await Listing.findById(id);
+  res.render('listings/edit', { listing });
+});
+
+app.put('/listings/:id', async (req, res) => {
+  let { id } = req.params;
+  await Listing.findByIdAndUpdate(id, { ...req.body.listing });
+  res.redirect(`/listings/${id}`); //it will redirect to show wale page
+});
+
+//Delete Route
+app.delete('/listings/:id', async (req, res) => {
+  let { id } = req.params;
+  let deleletListing = await Listing.findByIdAndDelete(id);
+  console.log(deleletListing);
+  res.redirect('/listings');
 });

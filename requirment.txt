@@ -6,3 +6,24 @@ image  (URL)
 price  (Number)
 location  (String)
 country  (String)
+
+
+CREATE
+GET /listings
+
+SHOW
+
+GET /listings/:id
+
+NEW
+GET /listings --> render the form
+form have the METHOD:POST to action /listing
+
+EDIT AND UPDATE ROUTE
+
+GET /listings/:id/edit  edit form will render to submit
+PUT /listings     editing will be visible over here
+
+
+DELETE ROUTE
+/listings/:id ke paasss aai gi
