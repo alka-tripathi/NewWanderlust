@@ -6,8 +6,12 @@ const Listing = require('./models/listing');
 const initdata = require('./init/data.js');
 //const ejs = require('ejs');
 const methodOverride = require('method-override');
-
+const ejsMate = require('ejs-mate');
+app.engine('ejs', ejsMate);
 const path = require('path');
+//public file ko use krne ke liye
+app.use(express.static(path.join(__dirname, '/public')));
+
 const { request } = require('http');
 app.use(express.urlencoded({ extended: true }));
 //set view engine
@@ -41,15 +45,15 @@ app.get('/', (req, res) => {
 //   console.log('Sample listing saved');
 //   res.send('Sample listing created');
 // });
-// app.get("/insert-data",async(req,res)=>{
-//   try{
+// app.get('/insert-data', async (req, res) => {
+//   try {
 //     await Listing.insertMany(initdata.data);
-//     res.send("Data inserted successfully");
-//   }catch(err){
+//     res.send('Data inserted successfully');
+//   } catch (err) {
 //     console.error(err);
-//     res.status(500).send("Error inserting data");
+//     res.status(500).send('Error inserting data');
 //   }
-// })
+// });
 
 // Route to display all listings
 // INDEX ROUT

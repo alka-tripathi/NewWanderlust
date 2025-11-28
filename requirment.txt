@@ -27,3 +27,11 @@ PUT /listings     editing will be visible over here
 
 DELETE ROUTE
 /listings/:id ke paasss aai gi
+
+
+-----STYLING THE PHASE 1 NOW------
+
+EJS Mate:Templating to upper level ..layout teyaar krne mai madat krta hai
+common page to sath mai rkhna
+
+-> includes/ partial

@@ -1,0 +1,83 @@
+body {
+    background-color: blanchedalmond;
+    margin: 0;
+    padding: 0;
+     font-family: "Plus Jakarta Sans", sans-serif !important;
+     font-optical-sizing: auto;
+
+
+    
+
+}
+
+/* Footer container */
+footer {
+    width: 100%;
+}
+
+/* Main footer info box */
+.f-info {
+    background-color: gray;
+    height: 8rem;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+    text-align: center;
+    padding: 1rem;
+}
+
+/* Social icons area */
+.f-info-socials {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 1.2rem;
+}
+
+.f-info-socials i {
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/* Links */
+.f-info-links {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 0.5rem;
+}
+
+.f-info-links a {
+    text-decoration: none;
+    color: #222222;
+    font-weight: 500;
+}
+
+.f-info-links a:hover {
+    text-decoration: underline;
+}
+
+
+.card{
+    border:none !important;
+    margin-bottom: 2rem;
+
+
+}
+.card-img-top{
+    border-radius: 1rem !important;
+    width: 100% !important;
+    object-fit: cover !important;
+}
+.card-body{
+    padding:0 !important;
+
+}
+.card-text p{
+    font-weight: 400;
+}
+.listing-link{
+    text-decoration: none;
+}
