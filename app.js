@@ -113,3 +113,7 @@ app.delete('/listings/:id', async (req, res) => {
   console.log(deleletListing);
   res.redirect('/listings');
 });
+
+
+//Submitting the form
+

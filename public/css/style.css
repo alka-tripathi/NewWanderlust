@@ -98,3 +98,12 @@ footer {
     background-color: red;
     color:white;
 }
+
+.editbtn{
+   background-color: red;
+    color:white;
+    border:none;
+}
+.show-img{
+    height:30vh;
+}

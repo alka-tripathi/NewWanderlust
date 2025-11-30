@@ -35,3 +35,29 @@ EJS Mate:Templating to upper level ..layout teyaar krne mai madat krta hai
 common page to sath mai rkhna
 
 -> includes/ partial
+
+
+ ---New Model:Reviews  (one to many) haar listing se bht saarse review
+1)Comment
+2)Rating(1 to 5)
+3)createdAt
+
+
+
+---MIDDLEWARE----
+it is an intermediary
+
+ Request ----> Middleware -----> Response
+
+ i)methodOverride
+ ii)bodyParser --> body data to parse for express
+ iii)express.static
+ iV)express.urlencoded --> to access query data
+
+ Properties
+ 1) req res object ko access kr sakte hai
+ 2)chaining -> function -> control -> function2 -> control
+ 3) send a response --> tab aage ge middleware call nai hoge(in chaining milderware)
+
+ in Express
+ Middleware in Express are function that come into play after the server 
