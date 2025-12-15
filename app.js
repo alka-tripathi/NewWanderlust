@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+app.use(express.urlencoded({ extended: true }));
 const mongoose = require('mongoose');
 const connectDB = require('./config/db');
 const Listing = require('./models/listing');
@@ -13,7 +14,7 @@ const path = require('path');
 app.use(express.static(path.join(__dirname, '/public')));
 
 const { request } = require('http');
-app.use(express.urlencoded({ extended: true }));
+
 //set view engine
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
@@ -59,6 +60,7 @@ app.get('/', (req, res) => {
 // INDEX ROUT
 app.get('/listings', async (req, res) => {
   try {
+    console.log('REQ BODY:', req.body);
     const alllistings = await Listing.find({});
     res.render('listings/index', { alllistings });
   } catch (err) {
@@ -114,6 +116,4 @@ app.delete('/listings/:id', async (req, res) => {
   res.redirect('/listings');
 });
 
-
 //Submitting the form
-

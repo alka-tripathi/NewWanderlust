@@ -7,17 +7,22 @@
     <form
       method="POST"
       action="/listings"
+      
+      class="needs-validation"
+     
     >
       <div class="mb-3">
         <label
           for="title"
           class="form-label"
+        
           >Title</label
         >
         <input
           name="listing[title]"
           placeholder="Add a Title"
           type="text"
+         
           class="form-control"
         />
       </div>
@@ -32,6 +37,7 @@
           name="listing[description]"
           placeholder="Enter description"
           class="form-control"
+          
         ></textarea>
       </div>
 
@@ -42,10 +48,12 @@
           >Image</label
         >
         <input
-          name="listing[image].img"
+          name="listing[image]"
           placeholder="Enter image URL"
           type="text"
           class="form-control"
+        
+       
         />
       </div>
 
@@ -60,6 +68,7 @@
           placeholder="Enter price"
           type="number"
           class="form-control"
+          
         />
       </div>
 
@@ -75,6 +84,7 @@
           placeholder="Enter location name"
           type="text"
           class="form-control"
+        
         />
       </div>
 
@@ -89,6 +99,7 @@
           placeholder="Enter country name"
           type="text"
           class="form-control"
+        
         />
       </div>
      </div>
