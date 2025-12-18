@@ -2,7 +2,16 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const ListingSchema = new Schema({
-  title: { type: String, required: true },
+  title: {
+    type: String,
+    required: true,
+    validate: {
+      validator: function (value) {
+        return isNaN(value);
+      },
+      message: 'Title cannot be only a number',
+    },
+  },
   description: { type: String, required: true },
 
   image: {
@@ -10,7 +19,7 @@ const ListingSchema = new Schema({
     url: {
       type: String,
       set: (url) =>
-        url === ' '
+        !url || url.trim() === ''
           ? 'https://images.unsplash.com/photo-1632178702478-a3a628c2886d?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
           : url,
     },

@@ -17,10 +17,19 @@
     />
 
     <div class="card-body">
-      <p class="card-text">
+      < class="card-text">
         Description: <%= listing.description %><br />
-        <span style="color: red; font-weight: 500">Price:</span> ₹ <%=
-        listing.price.toLocaleString("en-IN") %><br />
+        <span style="color: red; font-weight: 500">Price:</span>
+      
+
+
+          
+              ₹ <%= listing.price ? listing.price.toLocaleString("en-IN") :
+              "N/A" %>/night
+          
+          </div>
+         
+         <br />
 
         <span style="color: red; font-weight: 500">Location:</span> <%=
         listing.location %><br />
